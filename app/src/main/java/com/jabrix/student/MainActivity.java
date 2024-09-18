@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        EditText edtTanggal, edtFullname, edtUsername, edtEmail, edtNim, edtPassword, edtAlamat, edtNohp;
+        EditText edtTanggal, edtFullname, edtUsername, edtKonfirmasi,edtEmail, edtNim, edtPassword, edtAlamat, edtNohp;
         Spinner spinGender;
         Button btnRegistrasi;
         int tahun, bulan, tanggal;
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             edtEmail = findViewById(R.id.edt_email);
             edtNim = findViewById(R.id.edt_nim);
             edtPassword = findViewById(R.id.edt_password);
+            edtKonfirmasi = findViewById(R.id.edt_confir_password);
             edtAlamat = findViewById(R.id.edt_alamat);
             edtNohp = findViewById(R.id.edt_nohp);
             edtTanggal = findViewById(R.id.edt_date);
@@ -68,11 +69,12 @@ public class MainActivity extends AppCompatActivity {
                     String email = edtEmail.getText().toString();
                     String nim = edtNim.getText().toString();
                     String password = edtPassword.getText().toString();
+                    String konfirmasi = edtKonfirmasi.getText().toString();
                     String tanggal = edtTanggal.getText().toString();
                     String alamat = edtAlamat.getText().toString();
                     String nohp = edtNohp.getText().toString();
 
-                    Toast.makeText(MainActivity.this, "Nama: " + fullname + ", email: " + email + ",username: " + username + ",nim: " + nim + ",password: " + password + ",tanggal: " + tanggal + ",alamat: " + alamat + ",nohp: " + nohp + "", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Nama: " + fullname + ", email: " + email + ",username: " + username + ",nim: " + nim + ",password: " + password +",konfimasi_password:" + konfirmasi +",tanggal: " + tanggal + ",alamat: " + alamat + ",nohp: " + nohp + "", Toast.LENGTH_LONG).show();
 
 
                 }

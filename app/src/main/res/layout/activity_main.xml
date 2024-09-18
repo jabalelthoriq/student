@@ -19,7 +19,9 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:drawableStart="@drawable/baseline_person_24"
+        android:drawablePadding="5dp"/>
 
     <EditText
         android:id="@+id/edt_username"
@@ -30,7 +32,9 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/edt_fullname"
         app:layout_constraintStart_toStartOf="@+id/edt_fullname"
-        app:layout_constraintTop_toBottomOf="@+id/edt_fullname" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_fullname"
+        android:drawableStart="@drawable/baseline_person2"
+        android:drawablePadding="5dp"/>
 
     <EditText
         android:id="@+id/edt_email"
@@ -42,7 +46,9 @@
         app:layout_constraintEnd_toEndOf="@+id/edt_username"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/edt_username"
-        app:layout_constraintTop_toBottomOf="@+id/edt_username" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_username"
+        android:drawableStart="@drawable/baseline_email"
+        android:drawablePadding="5dp"/>
 
     <EditText
         android:id="@+id/edt_nim"
@@ -53,7 +59,9 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/edt_email"
         app:layout_constraintStart_toStartOf="@+id/edt_email"
-        app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_email"
+        android:drawableStart="@drawable/baseline_number"
+        android:drawablePadding="5dp"/>
 
     <EditText
         android:id="@+id/edt_password"
@@ -64,6 +72,24 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/edt_nim"
         app:layout_constraintStart_toStartOf="@+id/edt_nim"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nim"
+        android:drawableStart="@drawable/baseline_lock"
+        android:drawablePadding="5dp"/>
+
+
+    <EditText
+        android:id="@+id/edt_confir_password"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:drawableStart="@drawable/baseline_lock"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="konfirmasi password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/edt_nim"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_nim"
         app:layout_constraintTop_toBottomOf="@+id/edt_nim" />
 
     <Spinner
@@ -71,13 +97,16 @@
         android:layout_width="394dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
+        android:drawableStart="@drawable/baseline_transgender"
+        android:drawablePadding="5dp"
         android:entries="@array/gender"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="@+id/edt_password"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="@+id/edt_password"
         app:layout_constraintTop_toBottomOf="@+id/edt_password" />
-
 
     <EditText
         android:id="@+id/edt_date"
@@ -89,7 +118,9 @@
         android:inputType="none"
         app:layout_constraintEnd_toEndOf="@+id/spin_gender"
         app:layout_constraintStart_toStartOf="@+id/spin_gender"
-        app:layout_constraintTop_toBottomOf="@+id/spin_gender" />
+        app:layout_constraintTop_toBottomOf="@+id/spin_gender"
+        android:drawableStart="@drawable/baseline_calendar"
+        android:drawablePadding="5dp"/>
 
     <EditText
         android:id="@+id/edt_alamat"
@@ -100,12 +131,17 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/edt_date"
         app:layout_constraintStart_toStartOf="@+id/edt_date"
-        app:layout_constraintTop_toBottomOf="@+id/edt_date" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_date"
+        android:drawableStart="@drawable/baseline_add_location"
+        android:drawablePadding="5dp"/>
 
     <EditText
         android:id="@+id/edt_nohp"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:drawableStart="@drawable/baseline_wifi_calling_24"
+        android:drawablePadding="5dp"
         android:ems="10"
         android:hint="masukkan no hp"
         android:inputType="number"
@@ -118,7 +154,7 @@
         android:id="@+id/btn_registrasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:text="REGISTRASI"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,9 +164,22 @@
         android:id="@+id/imageView"
         android:layout_width="101dp"
         android:layout_height="79dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/ic_logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Jabrix Store"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
