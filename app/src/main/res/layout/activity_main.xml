@@ -5,7 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <EditText
         android:id="@+id/edt_fullname"
@@ -21,7 +26,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         android:drawableStart="@drawable/baseline_person_24"
-        android:drawablePadding="5dp"/>
+        android:drawablePadding="5dp"
+        android:textColor="@color/brown"/>
 
     <EditText
         android:id="@+id/edt_username"
@@ -168,14 +174,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/ic_logo" />
+        app:srcCompat="@drawable/logo_app" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Jabrix Store"
+        android:text="Toko Kue"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
