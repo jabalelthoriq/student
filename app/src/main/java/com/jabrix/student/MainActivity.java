@@ -1,74 +1,52 @@
 package com.jabrix.student;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.FrameLayout;
-
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.tabs.TabLayout;
+import android.os.Bundle;
+import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
-    FrameLayout frameLayout;
-    TabLayout tabLayout;
+public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener{
+
+    BottomNavigationView bottomNavigationView;
+    FirstFragment firstFragment = new FirstFragment();
+    SecondFragment secondFragment = new SecondFragment();
+    ThirdFragment thirdFragment = new ThirdFragment();
+    FourFragment fourFragment = new FourFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(this);
+        bottomNavigationView.setSelectedItemId(R.id.dashboard);
+    }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        frameLayout = (FrameLayout) findViewById(R.id.framelayout);
-        tabLayout = (TabLayout) findViewById(R.id.tablayout);
+        int itemId = item.getItemId();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new FirstFragment())
-                .addToBackStack(null)
-                .commit();
+        if (itemId == R.id.dashboard) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, firstFragment).commit();
+            return true;
+        } else if (itemId == R.id.order) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, secondFragment).commit();
+            return true;
+        } else if (itemId == R.id.overview) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, thirdFragment).commit();
+            return true;
+        } else if (itemId == R.id.settings) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fourFragment).commit();
+            return true;
+        }
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                Fragment fragment = null;
-                switch (tab.getPosition()) {
-                    case 0:
-                        fragment = new FirstFragment();
-                        break;
-                    case 1:
-                        fragment = new SeccondFragment();
-                        break;
-                    case 2:
-                        fragment = new ThirdFragment();
-                        break;
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, fragment)
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .commit();
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+        return false;
     }
 }

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Student"
         tools:targetApi="31">
         <activity
-            android:name=".login1"
+            android:name=".register"
             android:exported="true"/>
         <activity
             android:name=".login2"
@@ -22,7 +22,7 @@
             android:name=".MainActivity"
             android:exported="true"/>
         <activity
-            android:name=".register"
+            android:name=".login1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

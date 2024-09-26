@@ -18,13 +18,15 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Calendar;
 
 public class register extends AppCompatActivity {
-    private static final String KEY_NAME = "KEY_NAME";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_USERNAME = "username";
     private static final String EMAIL_PATTERN = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
 
     private EditText edtEmail;
     private EditText edtPassword;
     private EditText edtKonfirmasi;
     private Button btnRegistrasi;
+    private EditText edtUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class register extends AppCompatActivity {
         edtPassword = findViewById(R.id.edt_password);
         edtKonfirmasi = findViewById(R.id.edt_confir_password);
         btnRegistrasi = findViewById(R.id.btn_registrasi);
+        edtUsername = findViewById(R.id.edt_username);
     }
 
     private void setupListeners() {
@@ -55,12 +58,16 @@ public class register extends AppCompatActivity {
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();
         String konfirmasi = edtKonfirmasi.getText().toString();
+        String username = edtUsername.getText().toString();
 
         if (email.matches(EMAIL_PATTERN) && password.equals(konfirmasi)) {
             SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
             prefs.edit().putString("password", password).apply();
             Intent i = new Intent(register.this, login2.class);
-            i.putExtra(KEY_NAME, email);
+            Bundle bundle = new Bundle();
+            bundle.putString(KEY_EMAIL, email);
+            bundle.putString(KEY_USERNAME, username);
+            i.putExtras(bundle);
             startActivity(i);
         } else {
             Toast.makeText(this, "Invalid email or password mismatch", Toast.LENGTH_SHORT).show();

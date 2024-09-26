@@ -8,6 +8,7 @@
     <color name="text_color">#333333</color>
     <color name="biru">#1E2A5E</color>
     <color name="biru_muda">#0062B0</color>
+    <color name="biru_muda2">#DFEBF6</color>
     <color name="ButtonStyle">
         <item name="android:background">@color/biru</item>
         <item name="android:textSize">18sp</item>
